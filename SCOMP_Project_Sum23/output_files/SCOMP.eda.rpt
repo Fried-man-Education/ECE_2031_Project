@@ -1,5 +1,5 @@
 EDA Netlist Writer report for SCOMP
-Thu Jul 20 17:04:29 2023
+Thu Jul 20 17:39:23 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -8,7 +8,9 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 ---------------------
   1. Legal Notice
   2. EDA Netlist Writer Summary
-  3. EDA Netlist Writer Messages
+  3. Simulation Settings
+  4. Simulation Generated Files
+  5. EDA Netlist Writer Messages
 
 
 
@@ -32,14 +34,45 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+---------------------------------------------------------------+
-; EDA Netlist Writer Summary                                    ;
-+---------------------------+-----------------------------------+
-; EDA Netlist Writer Status ; Failed - Thu Jul 20 17:04:29 2023 ;
-; Revision Name             ; SCOMP                             ;
-; Top-level Entity Name     ; AudioMonitor                      ;
-; Family                    ; Cyclone V                         ;
-+---------------------------+-----------------------------------+
++-------------------------------------------------------------------+
+; EDA Netlist Writer Summary                                        ;
++---------------------------+---------------------------------------+
+; EDA Netlist Writer Status ; Successful - Thu Jul 20 17:39:23 2023 ;
+; Revision Name             ; SCOMP                                 ;
+; Top-level Entity Name     ; AudioMonitor                          ;
+; Family                    ; Cyclone V                             ;
+; Simulation Files Creation ; Successful                            ;
++---------------------------+---------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Simulation Settings                                                                                                        ;
++---------------------------------------------------------------------------------------------------+------------------------+
+; Option                                                                                            ; Setting                ;
++---------------------------------------------------------------------------------------------------+------------------------+
+; Tool Name                                                                                         ; ModelSim-Altera (VHDL) ;
+; Generate functional simulation netlist                                                            ; On                     ;
+; Truncate long hierarchy paths                                                                     ; Off                    ;
+; Map illegal HDL characters                                                                        ; Off                    ;
+; Flatten buses into individual nodes                                                               ; Off                    ;
+; Maintain hierarchy                                                                                ; Off                    ;
+; Bring out device-wide set/reset signals as ports                                                  ; Off                    ;
+; Enable glitch filtering                                                                           ; Off                    ;
+; Do not write top level VHDL entity                                                                ; Off                    ;
+; Disable detection of setup and hold time violations in the input registers of bi-directional pins ; Off                    ;
+; Architecture name in VHDL output netlist                                                          ; structure              ;
+; Generate third-party EDA tool command script for RTL functional simulation                        ; Off                    ;
+; Generate third-party EDA tool command script for gate-level simulation                            ; Off                    ;
++---------------------------------------------------------------------------------------------------+------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                                                ;
++---------------------------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                                           ;
++---------------------------------------------------------------------------------------------------------------------------+
+; C:/Users/hmohammed30/Downloads/ECE_2031_Project-main/ECE_2031_Project-main/SCOMP_Project_Sum23/simulation/qsim//SCOMP.vho ;
++---------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -62,19 +95,19 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details, at
     Info: https://fpgasoftware.intel.com/eula.
-    Info: Processing started: Thu Jul 20 17:04:28 2023
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off SCOMP -c SCOMP --vector_source=C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/output_files/test_peripheral.vwf --testbench_file=C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/simulation/qsim/output_files/test_peripheral.vwf.vht
+    Info: Processing started: Thu Jul 20 17:39:19 2023
+Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/hmohammed30/Downloads/ECE_2031_Project-main/ECE_2031_Project-main/SCOMP_Project_Sum23/simulation/qsim/ SCOMP -c SCOMP
 Warning (20013): Ignored 16 assignments for entity "PLL_main" -- entity does not exist in design
     Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity PLL_main -sip PLL_main.sip -library lib_PLL_main was ignored
     Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_VERSION 19.1 -entity PLL_main -sip PLL_main.sip -library lib_PLL_main was ignored
     Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_ENV mwpim -entity PLL_main -sip PLL_main.sip -library lib_PLL_main was ignored
 Warning (20013): Ignored 461 assignments for entity "PLL_main_0002" -- entity does not exist in design
 Info (119006): Selected device 5CSXFC6D6F31C6 for design "SCOMP"
-Error (199013): HDL output file name "C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/simulation/qsim/output_files/test_peripheral.vwf.vht" used with --testbench_file option contains a non-existent directory path
-Error: Quartus Prime EDA Netlist Writer was unsuccessful. 1 error, 5 warnings
-    Error: Peak virtual memory: 4728 megabytes
-    Error: Processing ended: Thu Jul 20 17:04:29 2023
-    Error: Elapsed time: 00:00:01
-    Error: Total CPU time (on all processors): 00:00:01
+Info (204019): Generated file SCOMP.vho in folder "C:/Users/hmohammed30/Downloads/ECE_2031_Project-main/ECE_2031_Project-main/SCOMP_Project_Sum23/simulation/qsim//" for EDA simulation tool
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4735 megabytes
+    Info: Processing ended: Thu Jul 20 17:39:23 2023
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:01
 
 
