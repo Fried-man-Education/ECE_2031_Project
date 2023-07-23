@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SCOMP
-Thu Jul 20 16:50:07 2023
+Sun Jul 23 16:42:24 2023
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -14,8 +14,8 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 10. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
  11. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
  12. Post-Synthesis Netlist Statistics for Top Partition
  13. Elapsed Time Per Partition
@@ -46,14 +46,14 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Jul 20 16:50:07 2023       ;
+; Analysis & Synthesis Status     ; Successful - Sun Jul 23 16:42:24 2023       ;
 ; Quartus Prime Version           ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                   ; SCOMP                                       ;
 ; Top-level Entity Name           ; AudioMonitor                                ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 98                                          ;
-; Total pins                      ; 37                                          ;
+; Total registers                 ; 230                                         ;
+; Total pins                      ; 85                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -159,41 +159,38 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 6           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
-;     Processor 5            ;   0.0%      ;
-;     Processor 6            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                   ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                               ; Library ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------+---------+
-; AudioMonitor.vhd                 ; yes             ; User VHDL File               ; C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd           ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_divide.tdf                      ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/abs_divider.inc                     ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/sign_div_unsign.inc                 ;         ;
-; aglobal191.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/aglobal191.inc                      ;         ;
-; db/lpm_divide_5dm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_divide_5dm.tdf      ;         ;
-; db/sign_div_unsign_bnh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/sign_div_unsign_bnh.tdf ;         ;
-; db/alt_u_div_s2f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/alt_u_div_s2f.tdf       ;         ;
-; db/lpm_divide_rqo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_divide_rqo.tdf      ;         ;
-; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/abs_divider_4dg.tdf     ;         ;
-; db/alt_u_div_o2f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/alt_u_div_o2f.tdf       ;         ;
-; db/lpm_abs_4p9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_abs_4p9.tdf         ;         ;
-; db/lpm_divide_2jo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_divide_2jo.tdf      ;         ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                            ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------+---------+
+; AudioMonitor.vhd                 ; yes             ; User VHDL File               ; C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd           ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_divide.tdf                                   ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/abs_divider.inc                                  ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/sign_div_unsign.inc                              ;         ;
+; aglobal191.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/aglobal191.inc                                   ;         ;
+; db/lpm_divide_rqo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_divide_rqo.tdf      ;         ;
+; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/abs_divider_4dg.tdf     ;         ;
+; db/alt_u_div_o2f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/alt_u_div_o2f.tdf       ;         ;
+; db/lpm_abs_4p9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_abs_4p9.tdf         ;         ;
+; db/lpm_divide_42m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_divide_42m.tdf      ;         ;
+; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/sign_div_unsign_7kh.tdf ;         ;
+; db/alt_u_div_kse.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/alt_u_div_kse.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------+---------+
 
 
 +-------------------------------------------------------------+
@@ -201,25 +198,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------+
 ; Resource                                    ; Usage         ;
 +---------------------------------------------+---------------+
-; Estimate of Logic utilization (ALMs needed) ; 1130          ;
+; Estimate of Logic utilization (ALMs needed) ; 767           ;
 ;                                             ;               ;
-; Combinational ALUT usage for logic          ; 2226          ;
+; Combinational ALUT usage for logic          ; 1455          ;
 ;     -- 7 input functions                    ; 0             ;
-;     -- 6 input functions                    ; 32            ;
-;     -- 5 input functions                    ; 429           ;
-;     -- 4 input functions                    ; 675           ;
-;     -- <=3 input functions                  ; 1090          ;
+;     -- 6 input functions                    ; 28            ;
+;     -- 5 input functions                    ; 220           ;
+;     -- 4 input functions                    ; 476           ;
+;     -- <=3 input functions                  ; 731           ;
 ;                                             ;               ;
-; Dedicated logic registers                   ; 98            ;
+; Dedicated logic registers                   ; 230           ;
 ;                                             ;               ;
-; I/O pins                                    ; 37            ;
+; I/O pins                                    ; 85            ;
 ;                                             ;               ;
 ; Total DSP Blocks                            ; 0             ;
 ;                                             ;               ;
 ; Maximum fan-out node                        ; AUD_NEW~input ;
-; Maximum fan-out                             ; 82            ;
-; Total fan-out                               ; 8626          ;
-; Average fan-out                             ; 3.57          ;
+; Maximum fan-out                             ; 214           ;
+; Total fan-out                               ; 6030          ;
+; Average fan-out                             ; 3.22          ;
 +---------------------------------------------+---------------+
 
 
@@ -228,19 +225,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                           ; Entity Name         ; Library Name ;
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |AudioMonitor                          ; 2226 (114)          ; 98 (98)                   ; 0                 ; 0          ; 37   ; 0            ; |AudioMonitor                                                                                                 ; AudioMonitor        ; work         ;
-;    |lpm_divide:Div0|                   ; 1078 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_5dm:auto_generated|  ; 1078 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div0|lpm_divide_5dm:auto_generated                                                   ; lpm_divide_5dm      ; work         ;
-;          |sign_div_unsign_bnh:divider| ; 1078 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div0|lpm_divide_5dm:auto_generated|sign_div_unsign_bnh:divider                       ; sign_div_unsign_bnh ; work         ;
-;             |alt_u_div_s2f:divider|    ; 1078 (1078)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div0|lpm_divide_5dm:auto_generated|sign_div_unsign_bnh:divider|alt_u_div_s2f:divider ; alt_u_div_s2f       ; work         ;
-;    |lpm_divide:Div1|                   ; 511 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_rqo:auto_generated|  ; 511 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div1|lpm_divide_rqo:auto_generated                                                   ; lpm_divide_rqo      ; work         ;
-;          |abs_divider_4dg:divider|     ; 511 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div1|lpm_divide_rqo:auto_generated|abs_divider_4dg:divider                           ; abs_divider_4dg     ; work         ;
-;             |alt_u_div_o2f:divider|    ; 511 (511)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div1|lpm_divide_rqo:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider     ; alt_u_div_o2f       ; work         ;
-;    |lpm_divide:Mod0|                   ; 523 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_2jo:auto_generated|  ; 523 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Mod0|lpm_divide_2jo:auto_generated                                                   ; lpm_divide_2jo      ; work         ;
-;          |abs_divider_4dg:divider|     ; 523 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Mod0|lpm_divide_2jo:auto_generated|abs_divider_4dg:divider                           ; abs_divider_4dg     ; work         ;
-;             |alt_u_div_o2f:divider|    ; 523 (523)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Mod0|lpm_divide_2jo:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider     ; alt_u_div_o2f       ; work         ;
+; |AudioMonitor                          ; 1455 (109)          ; 230 (230)                 ; 0                 ; 0          ; 85   ; 0            ; |AudioMonitor                                                                                                 ; AudioMonitor        ; work         ;
+;    |lpm_divide:Div0|                   ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_rqo:auto_generated|  ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div0|lpm_divide_rqo:auto_generated                                                   ; lpm_divide_rqo      ; work         ;
+;          |abs_divider_4dg:divider|     ; 1334 (47)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div0|lpm_divide_rqo:auto_generated|abs_divider_4dg:divider                           ; abs_divider_4dg     ; work         ;
+;             |alt_u_div_o2f:divider|    ; 1255 (1255)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div0|lpm_divide_rqo:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider     ; alt_u_div_o2f       ; work         ;
+;             |lpm_abs_4p9:my_abs_num|   ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Div0|lpm_divide_rqo:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num    ; lpm_abs_4p9         ; work         ;
+;    |lpm_divide:Mod0|                   ; 12 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_42m:auto_generated|  ; 12 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Mod0|lpm_divide_42m:auto_generated                                                   ; lpm_divide_42m      ; work         ;
+;          |sign_div_unsign_7kh:divider| ; 12 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Mod0|lpm_divide_42m:auto_generated|sign_div_unsign_7kh:divider                       ; sign_div_unsign_7kh ; work         ;
+;             |alt_u_div_kse:divider|    ; 12 (12)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AudioMonitor|lpm_divide:Mod0|lpm_divide_42m:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_kse:divider ; alt_u_div_kse       ; work         ;
 +----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -250,41 +244,27 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 98    ;
-; Number of registers using Synchronous Clear  ; 9     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 26    ;
+; Total registers                              ; 230   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 32    ;
+; Number of registers using Asynchronous Clear ; 144   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 56    ;
+; Number of registers using Clock Enable       ; 147   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 5:1                ; 16 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |AudioMonitor|Mux1         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
 +------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
-+------------------------+----------------+------------------------+
-; Parameter Name         ; Value          ; Type                   ;
-+------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 31             ; Untyped                ;
-; LPM_WIDTHD             ; 26             ; Untyped                ;
-; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
-; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
-; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_5dm ; Untyped                ;
-; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
-; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
-; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
-; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
-; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
-; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
-+------------------------+----------------+------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_divide:Div1 ;
 +------------------------+----------------+------------------------+
 ; Parameter Name         ; Value          ; Type                   ;
 +------------------------+----------------+------------------------+
@@ -311,14 +291,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------------+----------------+------------------------+
 ; Parameter Name         ; Value          ; Type                   ;
 +------------------------+----------------+------------------------+
-; LPM_WIDTHN             ; 27             ; Untyped                ;
-; LPM_WIDTHD             ; 32             ; Untyped                ;
-; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
-; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_WIDTHN             ; 4              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
 ; LPM_PIPELINE           ; 0              ; Untyped                ;
-; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
-; CBXI_PARAMETER         ; lpm_divide_2jo ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_42m ; Untyped                ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
@@ -334,35 +314,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 98                          ;
-;     CLR               ; 26                          ;
-;     ENA               ; 47                          ;
-;     ENA SCLR          ; 9                           ;
-;     plain             ; 16                          ;
+; arriav_ff             ; 230                         ;
+;     CLR               ; 32                          ;
+;     CLR SLD           ; 32                          ;
+;     ENA               ; 67                          ;
+;     ENA CLR           ; 80                          ;
+;     plain             ; 19                          ;
 ; arriav_io_obuf        ; 16                          ;
-; arriav_lcell_comb     ; 2226                        ;
-;     arith             ; 1045                        ;
-;         0 data inputs ; 86                          ;
-;         1 data inputs ; 85                          ;
-;         2 data inputs ; 58                          ;
-;         3 data inputs ; 199                         ;
-;         4 data inputs ; 240                         ;
-;         5 data inputs ; 377                         ;
-;     normal            ; 1120                        ;
-;         2 data inputs ; 498                         ;
-;         3 data inputs ; 106                         ;
-;         4 data inputs ; 432                         ;
-;         5 data inputs ; 52                          ;
-;         6 data inputs ; 32                          ;
-;     shared            ; 61                          ;
-;         0 data inputs ; 12                          ;
-;         1 data inputs ; 43                          ;
-;         2 data inputs ; 3                           ;
-;         4 data inputs ; 3                           ;
-; boundary_port         ; 37                          ;
+; arriav_lcell_comb     ; 1455                        ;
+;     arith             ; 709                         ;
+;         0 data inputs ; 36                          ;
+;         1 data inputs ; 284                         ;
+;         2 data inputs ; 80                          ;
+;         3 data inputs ; 36                          ;
+;         4 data inputs ; 273                         ;
+;     normal            ; 746                         ;
+;         2 data inputs ; 247                         ;
+;         3 data inputs ; 48                          ;
+;         4 data inputs ; 203                         ;
+;         5 data inputs ; 220                         ;
+;         6 data inputs ; 28                          ;
+; boundary_port         ; 85                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 87.90                       ;
-; Average LUT depth     ; 55.58                       ;
+; Max LUT depth         ; 114.50                      ;
+; Average LUT depth     ; 90.30                       ;
 +-----------------------+-----------------------------+
 
 
@@ -371,7 +346,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -381,131 +356,89 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Thu Jul 20 16:49:56 2023
+    Info: Processing started: Sun Jul 23 16:42:09 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SCOMP -c SCOMP
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file oneshot_i2c.bdf
     Info (12023): Found entity 1: oneshot_i2c
 Info (12021): Found 2 design units, including 1 entities, in source file i2c_oneshot_ctrl.vhd
-    Info (12022): Found design unit 1: i2c_oneshot_ctrl-main File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/i2c_oneshot_ctrl.vhd Line: 25
-    Info (12023): Found entity 1: i2c_oneshot_ctrl File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/i2c_oneshot_ctrl.vhd Line: 12
+    Info (12022): Found design unit 1: i2c_oneshot_ctrl-main File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/i2c_oneshot_ctrl.vhd Line: 25
+    Info (12023): Found entity 1: i2c_oneshot_ctrl File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/i2c_oneshot_ctrl.vhd Line: 12
 Info (12021): Found 2 design units, including 1 entities, in source file i2c_master.vhd
-    Info (12022): Found design unit 1: i2c_master-logic File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/i2c_master.vhd Line: 49
-    Info (12023): Found entity 1: i2c_master File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/i2c_master.vhd Line: 31
+    Info (12022): Found design unit 1: i2c_master-logic File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/i2c_master.vhd Line: 49
+    Info (12023): Found entity 1: i2c_master File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/i2c_master.vhd Line: 31
 Info (12021): Found 2 design units, including 1 entities, in source file hex_disp.vhd
-    Info (12022): Found design unit 1: HEX_DISP-a File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/HEX_DISP.vhd Line: 17
-    Info (12023): Found entity 1: HEX_DISP File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/HEX_DISP.vhd Line: 9
+    Info (12022): Found design unit 1: HEX_DISP-a File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/HEX_DISP.vhd Line: 17
+    Info (12023): Found entity 1: HEX_DISP File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/HEX_DISP.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file dig_out.vhd
-    Info (12022): Found design unit 1: DIG_OUT-a File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/DIG_OUT.vhd Line: 27
-    Info (12023): Found entity 1: DIG_OUT File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/DIG_OUT.vhd Line: 16
+    Info (12022): Found design unit 1: DIG_OUT-a File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/DIG_OUT.vhd Line: 27
+    Info (12023): Found entity 1: DIG_OUT File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/DIG_OUT.vhd Line: 16
 Info (12021): Found 2 design units, including 1 entities, in source file dig_in.vhd
-    Info (12022): Found design unit 1: DIG_IN-a File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/DIG_IN.vhd Line: 19
-    Info (12023): Found entity 1: DIG_IN File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/DIG_IN.vhd Line: 10
+    Info (12022): Found design unit 1: DIG_IN-a File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/DIG_IN.vhd Line: 19
+    Info (12023): Found entity 1: DIG_IN File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/DIG_IN.vhd Line: 10
 Info (12021): Found 2 design units, including 1 entities, in source file clk_div.vhd
-    Info (12022): Found design unit 1: clk_div-a File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/clk_div.vhd Line: 26
-    Info (12023): Found entity 1: clk_div File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/clk_div.vhd Line: 11
+    Info (12022): Found design unit 1: clk_div-a File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/clk_div.vhd Line: 26
+    Info (12023): Found entity 1: clk_div File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/clk_div.vhd Line: 11
 Info (12021): Found 2 design units, including 1 entities, in source file timer.vhd
-    Info (12022): Found design unit 1: TIMER-a File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/TIMER.vhd Line: 27
-    Info (12023): Found entity 1: TIMER File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/TIMER.vhd Line: 17
+    Info (12022): Found design unit 1: TIMER-a File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/TIMER.vhd Line: 27
+    Info (12023): Found entity 1: TIMER File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/TIMER.vhd Line: 17
 Info (12021): Found 2 design units, including 1 entities, in source file io_decoder.vhd
-    Info (12022): Found design unit 1: IO_DECODER-a File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/IO_DECODER.vhd Line: 25
-    Info (12023): Found entity 1: IO_DECODER File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/IO_DECODER.vhd Line: 9
+    Info (12022): Found design unit 1: IO_DECODER-a File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/IO_DECODER.vhd Line: 25
+    Info (12023): Found entity 1: IO_DECODER File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/IO_DECODER.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file scomp.vhd
-    Info (12022): Found design unit 1: SCOMP-a File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/SCOMP.vhd Line: 33
-    Info (12023): Found entity 1: SCOMP File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/SCOMP.vhd Line: 16
+    Info (12022): Found design unit 1: SCOMP-a File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/SCOMP.vhd Line: 33
+    Info (12023): Found entity 1: SCOMP File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/SCOMP.vhd Line: 16
 Info (12021): Found 1 design units, including 1 entities, in source file scomp_system.bdf
     Info (12023): Found entity 1: SCOMP_System
 Info (12021): Found 1 design units, including 1 entities, in source file hex_disp_6.bdf
     Info (12023): Found entity 1: HEX_DISP_6
 Info (12021): Found 2 design units, including 1 entities, in source file pll_main.vhd
-    Info (12022): Found design unit 1: PLL_main-rtl File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/PLL_main.vhd Line: 21
-    Info (12023): Found entity 1: PLL_main File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/PLL_main.vhd Line: 11
+    Info (12022): Found design unit 1: PLL_main-rtl File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/PLL_main.vhd Line: 21
+    Info (12023): Found entity 1: PLL_main File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/PLL_main.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file pll_main/pll_main_0002.v
-    Info (12023): Found entity 1: PLL_main_0002 File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/PLL_main/PLL_main_0002.v Line: 2
+    Info (12023): Found entity 1: PLL_main_0002 File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/PLL_main/PLL_main_0002.v Line: 2
 Info (12021): Found 2 design units, including 1 entities, in source file adc_interface.vhd
-    Info (12022): Found design unit 1: ADC_INTERFACE-a File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/ADC_INTERFACE.vhd Line: 20
-    Info (12023): Found entity 1: ADC_INTERFACE File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/ADC_INTERFACE.vhd Line: 9
+    Info (12022): Found design unit 1: ADC_INTERFACE-a File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/ADC_INTERFACE.vhd Line: 20
+    Info (12023): Found entity 1: ADC_INTERFACE File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/ADC_INTERFACE.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file adc_fifo.vhd
-    Info (12022): Found design unit 1: adc_fifo-SYN File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/ADC_FIFO.vhd Line: 57
-    Info (12023): Found entity 1: ADC_FIFO File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/ADC_FIFO.vhd Line: 43
+    Info (12022): Found design unit 1: adc_fifo-SYN File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/ADC_FIFO.vhd Line: 57
+    Info (12023): Found entity 1: ADC_FIFO File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/ADC_FIFO.vhd Line: 43
 Info (12021): Found 2 design units, including 1 entities, in source file audiomonitor.vhd
-    Info (12022): Found design unit 1: AudioMonitor-a File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 26
-    Info (12023): Found entity 1: AudioMonitor File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 14
+    Info (12022): Found design unit 1: AudioMonitor-a File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 29
+    Info (12023): Found entity 1: AudioMonitor File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 14
 Info (12127): Elaborating entity "AudioMonitor" for the top level hierarchy
-Warning (10492): VHDL Process Statement warning at AudioMonitor.vhd(68): signal "AUD_NEW" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 68
-Warning (10631): VHDL Process Statement warning at AudioMonitor.vhd(59): inferring latch(es) for signal or variable "divisor", which holds its previous value in one or more paths through the process File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[0]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[1]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[2]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[3]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[4]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[5]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[6]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[7]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[8]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[9]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[10]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[11]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[12]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[13]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[14]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[15]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[16]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[17]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[18]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[19]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[20]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[21]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[22]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[23]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[24]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[25]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[26]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[27]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[28]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[29]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[30]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (10041): Inferred latch for "divisor[31]" at AudioMonitor.vhd(59) File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 59
-Info (278001): Inferred 3 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 85
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 96
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 92
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 85
-Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 85
-    Info (12134): Parameter "LPM_WIDTHN" = "31"
-    Info (12134): Parameter "LPM_WIDTHD" = "26"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_5dm.tdf
-    Info (12023): Found entity 1: lpm_divide_5dm File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_divide_5dm.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bnh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_bnh File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/sign_div_unsign_bnh.tdf Line: 25
-Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_s2f.tdf
-    Info (12023): Found entity 1: alt_u_div_s2f File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/alt_u_div_s2f.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Div1" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 96
-Info (12133): Instantiated megafunction "lpm_divide:Div1" with the following parameter: File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 96
+Warning (10540): VHDL Signal Declaration warning at AudioMonitor.vhd(40): used explicit default value for signal "max" because signal was never assigned a value File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 40
+Warning (10036): Verilog HDL or VHDL warning at AudioMonitor.vhd(41): object "divisor" assigned a value but never read File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 41
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 105
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 81
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 105
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 105
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "32"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
     Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_rqo.tdf
-    Info (12023): Found entity 1: lpm_divide_rqo File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_divide_rqo.tdf Line: 25
+    Info (12023): Found entity 1: lpm_divide_rqo File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_divide_rqo.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
-    Info (12023): Found entity 1: abs_divider_4dg File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/abs_divider_4dg.tdf Line: 27
+    Info (12023): Found entity 1: abs_divider_4dg File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/abs_divider_4dg.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
-    Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/alt_u_div_o2f.tdf Line: 23
+    Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/alt_u_div_o2f.tdf Line: 23
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4p9.tdf
-    Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_abs_4p9.tdf Line: 23
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 92
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 92
-    Info (12134): Parameter "LPM_WIDTHN" = "27"
-    Info (12134): Parameter "LPM_WIDTHD" = "32"
-    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
-Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_2jo.tdf
-    Info (12023): Found entity 1: lpm_divide_2jo File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_divide_2jo.tdf Line: 25
+    Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_abs_4p9.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 81
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 81
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_42m.tdf
+    Info (12023): Found entity 1: lpm_divide_42m File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/lpm_divide_42m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_7kh File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/sign_div_unsign_7kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kse.tdf
+    Info (12023): Found entity 1: alt_u_div_kse File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/db/alt_u_div_kse.tdf Line: 23
 Info (286030): Timing-Driven Synthesis is running
 Warning (20013): Ignored 16 assignments for entity "PLL_main" -- entity does not exist in design
     Warning (20014): Assignment for entity set_global_assignment -name IP_TOOL_NAME altera_pll -entity PLL_main -sip PLL_main.sip -library lib_PLL_main was ignored
@@ -514,33 +447,17 @@ Warning (20013): Ignored 16 assignments for entity "PLL_main" -- entity does not
 Warning (20013): Ignored 461 assignments for entity "PLL_main_0002" -- entity does not exist in design
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 17 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SYS_CLK" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 18
-    Warning (15610): No output dependent on input pin "AUD_DATA[0]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[1]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[2]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[3]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[4]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[5]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[6]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[7]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[8]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[9]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[10]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[11]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[12]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[13]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[14]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-    Warning (15610): No output dependent on input pin "AUD_DATA[15]" File: C:/Users/kgeor/Code/GitHub/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 20
-Info (21057): Implemented 2279 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SYS_CLK" File: C:/Users/hassa/OneDrive/Desktop/Project/ECE_2031_Project/SCOMP_Project_Sum23/AudioMonitor.vhd Line: 18
+Info (21057): Implemented 1716 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 21 input pins
-    Info (21059): Implemented 0 output pins
+    Info (21059): Implemented 48 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 2242 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 4920 megabytes
-    Info: Processing ended: Thu Jul 20 16:50:07 2023
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:16
+    Info (21061): Implemented 1631 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 4889 megabytes
+    Info: Processing ended: Sun Jul 23 16:42:24 2023
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:13
 
 

@@ -116,6 +116,8 @@ DividerIsOne:
 
 ; Subroutine to find the true average with a start point stored in Average Sound and input count stored in temp
 FindTrueAverage:
+	LOADI 0
+    STORE Difference
 	LOAD TempSum			; TempSum is used to check if the current AverageSound is floor of total/input count
 	ADD AverageSound		; Add AverageSound to Tempsum until input count goes to 0, same as inputCount * AverageSound
 	STORE TempSum
